@@ -15,7 +15,7 @@ export default function Documentation({ content, locale }) {
         <meta name="description" content={getPageDescription('documentation', locale)} />
       </Head>
       <div>
-        <AppIcon />
+        <AppIcon href={`/${locale}/`} />
         <MarkdownContent content={content} />
         <DocumentationDisclaimer locale={locale} />
       </div>

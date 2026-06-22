@@ -33,10 +33,7 @@ function AppContactCard({ name, outer, inner, mood, innerColorStrip, className =
   )
 }
 
-function HexReversalRow({ outer, inner, outerLabel, innerLabel, sameContactReversed }) {
-  const forward = outer.replace('#', '').toLowerCase()
-  const reversed = inner.replace('#', '').toLowerCase()
-
+function DigitReversalRow({ outerCode, innerCode, outer, inner, outerLabel, innerLabel, sameContactReversed }) {
   return (
     <div className="mt-5 space-y-3">
       <p className="text-xs text-zinc-500 text-center uppercase tracking-widest">{sameContactReversed}</p>
@@ -45,7 +42,7 @@ function HexReversalRow({ outer, inner, outerLabel, innerLabel, sameContactRever
           <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">{outerLabel}</p>
           <div className="flex items-center gap-2 justify-center">
             <span className="w-4 h-4 rounded-sm ring-1 ring-black/10 dark:ring-white/20 shrink-0" style={{ backgroundColor: outer }} />
-            <code className="text-violet-600 dark:text-violet-300">#{forward}</code>
+            <code className="text-violet-600 dark:text-violet-300">{outerCode}</code>
           </div>
         </div>
         <svg className="w-5 h-5 text-zinc-400 dark:text-zinc-500 shrink-0 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -55,12 +52,12 @@ function HexReversalRow({ outer, inner, outerLabel, innerLabel, sameContactRever
           <p className="text-[10px] text-zinc-500 uppercase tracking-wider mb-1">{innerLabel}</p>
           <div className="flex items-center gap-2 justify-center">
             <span className="w-4 h-4 rounded-sm ring-1 ring-black/10 dark:ring-white/20 shrink-0" style={{ backgroundColor: inner }} />
-            <code className="text-cyan-600 dark:text-cyan-300">#{reversed}</code>
+            <code className="text-cyan-600 dark:text-cyan-300">{innerCode}</code>
           </div>
         </div>
       </div>
       <p className="text-center text-[11px] text-zinc-500 font-mono">
-        {forward} → {reversed}
+        {outerCode} → {innerCode}
       </p>
     </div>
   )
@@ -111,7 +108,9 @@ export default function SwipeableContactShowcase({ contacts, outerLabel, innerLa
         </div>
       </div>
 
-      <HexReversalRow
+      <DigitReversalRow
+        outerCode={current.code}
+        innerCode={current.codeReversed}
         outer={current.outer}
         inner={current.inner}
         outerLabel={outerLabel}

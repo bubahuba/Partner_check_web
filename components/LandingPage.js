@@ -1,6 +1,7 @@
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
-import { getLandingContent, getDemoContacts } from '../lib/landing'
+import { getLandingContent, getStaticDemoContacts, generateRandomDemoContacts } from '../lib/landing'
 import SwipeableContactShowcase from './SwipeableContactShowcase'
 
 function ChainIcon({ type }) {
@@ -72,7 +73,12 @@ function ContactCardPreview({ name, digits, outer, inner, mood, outerTooltip, in
 
 export default function LandingPage({ locale, title, description }) {
   const t = getLandingContent(locale)
-  const demoContacts = getDemoContacts(locale)
+  const [demoContacts, setDemoContacts] = useState(() => getStaticDemoContacts(locale))
+
+  useEffect(() => {
+    setDemoContacts(generateRandomDemoContacts(locale))
+  }, [locale])
+
   const docsPath = `/${locale}/documentation/`
   const { dualColor, psychology, ordering, favorites, ui } = t
 
@@ -151,7 +157,7 @@ export default function LandingPage({ locale, title, description }) {
 
                     <div className="mt-6 pt-6 border-t border-zinc-200 dark:border-zinc-700/50">
                       <p className="text-xs text-zinc-500 text-center uppercase tracking-widest mb-3">{ui.oneCardTwoLayers}</p>
-                      <ContactCardPreview {...demoContacts[0]} digits={`${demoContacts[0].outer} → ${demoContacts[0].inner}`} outerTooltip={ui.outerTooltip} innerTooltip={ui.innerTooltip} />
+                      <ContactCardPreview {...demoContacts[0]} digits={`${demoContacts[0].code} → ${demoContacts[0].codeReversed}`} outerTooltip={ui.outerTooltip} innerTooltip={ui.innerTooltip} />
                     </div>
                   </div>
                 </div>
@@ -304,10 +310,7 @@ export default function LandingPage({ locale, title, description }) {
                   </div>
                 </div>
                 <ul className="space-y-3">
-                  {[
-                    { name: 'Jordan', outer: '#3D8BFF', inner: '#FFB8D3', favorited: true },
-                    { name: 'Alex', outer: '#E8476C', inner: '#C6748E', favorited: true },
-                  ].map((row) => (
+                  {demoContacts.slice(1, 3).map((row) => (
                     <li
                       key={row.name}
                       className="flex items-center gap-3 p-3 rounded-2xl bg-zinc-50 dark:bg-zinc-800/50 border border-zinc-200 dark:border-zinc-700/40"
