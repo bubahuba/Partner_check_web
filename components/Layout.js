@@ -35,7 +35,7 @@ export default function Layout({ children }) {
       <nav className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-8">
+            <div className="flex items-center space-x-8 rtl:space-x-reverse">
               <Link href={getLocalizedPath('/')} className="text-xl font-bold text-gray-900 dark:text-gray-100">
                 PartnerCheck
               </Link>
@@ -45,7 +45,7 @@ export default function Layout({ children }) {
                 </Link>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-4 rtl:space-x-reverse">
               <LanguageSelector />
               <ThemeToggle />
               <button

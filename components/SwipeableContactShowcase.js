@@ -5,7 +5,7 @@ const OVERLAY_RATIO = 0.2
 function AppContactCard({ name, outer, inner, mood, innerColorStrip, className = '' }) {
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10 shadow-xl ${className}`}
+      className={`relative overflow-hidden rounded-2xl ring-1 ring-black/10 dark:ring-white/10 shadow-xl ${className} rtl:direction-rtl`}
       style={{ height: '280px' }}
     >
       <div className="absolute inset-0" style={{ backgroundColor: outer }} />
@@ -97,7 +97,7 @@ export default function SwipeableContactShowcase({ contacts, outerLabel, innerLa
     <div className="max-w-xs mx-auto lg:mx-0 lg:ms-auto">
       <div className="overflow-hidden rounded-2xl" aria-live="polite">
         <div
-          className="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none direction-ltr"
+          className="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none rtl:direction-ltr"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {contacts.map((contact) => (

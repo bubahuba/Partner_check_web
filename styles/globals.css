@@ -29,6 +29,13 @@
     font-family: 'DM Sans', system-ui, sans-serif;
   }
   
+  .direction-rtl {
+    direction: rtl;
+  }
+  
+  .direction-ltr {
+    direction: ltr;
+  }
   .prose {
     @apply max-w-4xl mx-auto;
   }
