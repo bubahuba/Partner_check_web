@@ -97,7 +97,7 @@ export default function SwipeableContactShowcase({ contacts, outerLabel, innerLa
     <div className="max-w-xs mx-auto lg:mx-0 lg:ms-auto">
       <div className="overflow-hidden rounded-2xl" aria-live="polite">
         <div
-          className="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none"
+          className="flex transition-transform duration-500 ease-in-out motion-reduce:transition-none direction-ltr"
           style={{ transform: `translateX(-${index * 100}%)` }}
         >
           {contacts.map((contact) => (
