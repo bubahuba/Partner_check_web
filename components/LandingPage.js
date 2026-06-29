@@ -391,12 +391,12 @@ export default function LandingPage({ locale, title, description }) {
                 </svg>
                 <span className="font-semibold">App Store</span>
               </div>
-              <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none">
+              <a className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none" href="https://play.google.com/store/apps/details?id=cz.shadowHub.partnerCheck&pcampaignid=app_website" target="_blank">
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3.609 1.814L13.792 12 3.61 22.186a1.006 1.006 0 01-.61-.92V2.734a1.006 1.006 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.002 1.002 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
                 </svg>
                 <span className="font-semibold">Google Play</span>
-              </div>
+              </a>
             </div>
 
             <Link
