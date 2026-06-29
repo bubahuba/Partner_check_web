@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import ThemeToggle from './ThemeToggle'
 import LanguageSelector from './LanguageSelector'
 import Link from 'next/link'
-import { isRtlLocale } from '../lib/languages'
+import { isRtlLocale, getWebAppUrl } from '../lib/languages'
 import { getNavLabel } from '../lib/nav'
 
 export default function Layout({ children }) {
@@ -34,6 +34,8 @@ export default function Layout({ children }) {
   const runAppLinkClassName =
     'inline-flex items-center px-3 py-1.5 rounded-lg bg-violet-600 text-white text-sm font-medium hover:bg-violet-500 transition-colors'
 
+  const webAppUrl = getWebAppUrl(locale)
+
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
       <nav className="border-b border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 sticky top-0 z-50">
@@ -44,7 +46,7 @@ export default function Layout({ children }) {
                 PartnerCheck
               </Link>
               <div className="hidden md:flex items-center space-x-6">
-                <a href="/app/" className={runAppLinkClassName}>
+                <a href={webAppUrl} className={runAppLinkClassName}>
                   {runAppLabel}
                 </a>
                 <Link href={getLocalizedPath('/documentation')} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
@@ -72,7 +74,7 @@ export default function Layout({ children }) {
           </div>
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 space-y-2">
-              <a href="/app/" className={`block w-fit mx-4 ${runAppLinkClassName}`} onClick={() => setMobileMenuOpen(false)}>
+              <a href={webAppUrl} className={`block w-fit mx-4 ${runAppLinkClassName}`} onClick={() => setMobileMenuOpen(false)}>
                 {runAppLabel}
               </a>
               <Link href={getLocalizedPath('/documentation')} className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>

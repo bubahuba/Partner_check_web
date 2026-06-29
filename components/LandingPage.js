@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
+import { getWebAppUrl } from '../lib/languages'
 import { getLandingContent, getStaticDemoContacts, generateRandomDemoContacts } from '../lib/landing'
 import SwipeableContactShowcase from './SwipeableContactShowcase'
 
@@ -80,6 +81,7 @@ export default function LandingPage({ locale, title, description }) {
   }, [locale])
 
   const docsPath = `/${locale}/documentation/`
+  const webAppUrl = getWebAppUrl(locale)
   const { dualColor, psychology, ordering, favorites, ui } = t
 
   return (
@@ -130,7 +132,7 @@ export default function LandingPage({ locale, title, description }) {
                     {t.ctaPrimary}
                   </a>
                   <a
-                    href="/app/"
+                    href={webAppUrl}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-violet-300 text-violet-700 font-medium text-base hover:border-violet-400 hover:bg-violet-50 dark:border-violet-500/50 dark:text-violet-300 dark:hover:border-violet-400 dark:hover:bg-violet-500/10 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -395,7 +397,7 @@ export default function LandingPage({ locale, title, description }) {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
-                href="/app/"
+                href={webAppUrl}
                 className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-violet-600 text-white border border-violet-500 shadow-sm hover:bg-violet-500 transition-colors"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
