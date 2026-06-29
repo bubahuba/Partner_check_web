@@ -28,7 +28,11 @@ export default function Layout({ children }) {
     return `/${locale}${path}${path.endsWith('/') ? '' : '/'}`
   }
 
+  const runAppLabel = getNavLabel('runApp', locale)
   const documentationLabel = getNavLabel('documentation', locale)
+
+  const runAppLinkClassName =
+    'inline-flex items-center px-3 py-1.5 rounded-lg bg-violet-600 text-white text-sm font-medium hover:bg-violet-500 transition-colors'
 
   return (
     <div className="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-200">
@@ -39,7 +43,10 @@ export default function Layout({ children }) {
               <Link href={getLocalizedPath('/')} className="text-xl font-bold text-gray-900 dark:text-gray-100">
                 PartnerCheck
               </Link>
-              <div className="hidden md:flex space-x-6">
+              <div className="hidden md:flex items-center space-x-6">
+                <a href="/app/" className={runAppLinkClassName}>
+                  {runAppLabel}
+                </a>
                 <Link href={getLocalizedPath('/documentation')} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
                   {documentationLabel}
                 </Link>
@@ -65,6 +72,9 @@ export default function Layout({ children }) {
           </div>
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 space-y-2">
+              <a href="/app/" className={`block w-fit mx-4 ${runAppLinkClassName}`} onClick={() => setMobileMenuOpen(false)}>
+                {runAppLabel}
+              </a>
               <Link href={getLocalizedPath('/documentation')} className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
                 {documentationLabel}
               </Link>
