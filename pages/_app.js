@@ -7,6 +7,20 @@ function App({ Component, pageProps }) {
     <>
       <Head>
         <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-QBHLEN5ZE2"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-QBHLEN5ZE2');
+            `,
+          }}
+        />
+        <script
           dangerouslySetInnerHTML={{
             __html: `(function(){try{var t=localStorage.getItem('theme')||'light';document.documentElement.classList.toggle('dark',t==='dark')}catch(e){}})();`,
           }}
