@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "NEXT_PUBLIC_SITE_URL=https://partnercheck.huba.sk next build",
     "start": "next start",
-    "export": "next build"
+    "export": "NEXT_PUBLIC_SITE_URL=https://partnercheck.huba.sk next build"
   },
   "dependencies": {
     "next": "^14.0.0",

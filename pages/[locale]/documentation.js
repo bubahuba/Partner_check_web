@@ -6,13 +6,18 @@ import { getPageTitle, getPageDescription } from '../../lib/meta'
 import MarkdownContent from '../../components/MarkdownContent'
 import DocumentationDisclaimer from '../../components/DocumentationDisclaimer'
 import AppIcon from '../../components/AppIcon'
+import OpenGraphMeta from '../../components/OpenGraphMeta'
 
 export default function Documentation({ content, locale }) {
+  const title = getPageTitle('documentation', locale)
+  const description = getPageDescription('documentation', locale)
+
   return (
     <>
       <Head>
-        <title>{getPageTitle('documentation', locale)}</title>
-        <meta name="description" content={getPageDescription('documentation', locale)} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <OpenGraphMeta title={title} description={description} locale={locale} path="/documentation" />
       </Head>
       <div>
         <AppIcon href={`/${locale}/`} />

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getWebAppUrl } from '../lib/languages'
 import { getLandingContent, getStaticDemoContacts, generateRandomDemoContacts } from '../lib/landing'
 import SwipeableContactShowcase from './SwipeableContactShowcase'
+import OpenGraphMeta from './OpenGraphMeta'
 
 function ChainIcon({ type }) {
   const icons = {
@@ -89,6 +90,7 @@ export default function LandingPage({ locale, title, description }) {
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
+        <OpenGraphMeta title={title} description={description} locale={locale} path="/" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
