@@ -4,6 +4,7 @@ import ThemeToggle from './ThemeToggle'
 import LanguageSelector from './LanguageSelector'
 import Link from 'next/link'
 import { isRtlLocale, getWebAppUrl } from '../lib/languages'
+import { trackEvent } from '../lib/analytics'
 import { getNavLabel } from '../lib/nav'
 
 export default function Layout({ children }) {
@@ -46,10 +47,18 @@ export default function Layout({ children }) {
                 PartnerCheck
               </Link>
               <div className="hidden md:flex items-center space-x-6">
-                <a href={webAppUrl} className={runAppLinkClassName}>
+                <a
+                  href={webAppUrl}
+                  className={runAppLinkClassName}
+                  onClick={() => trackEvent('click-app', { location: 'nav' })}
+                >
                   {runAppLabel}
                 </a>
-                <Link href={getLocalizedPath('/documentation')} className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors">
+                <Link
+                  href={getLocalizedPath('/documentation')}
+                  className="text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 transition-colors"
+                  onClick={() => trackEvent('click-docs', { location: 'nav' })}
+                >
                   {documentationLabel}
                 </Link>
               </div>
@@ -74,10 +83,24 @@ export default function Layout({ children }) {
           </div>
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 space-y-2">
-              <a href={webAppUrl} className={`block w-fit mx-4 ${runAppLinkClassName}`} onClick={() => setMobileMenuOpen(false)}>
+              <a
+                href={webAppUrl}
+                className={`block w-fit mx-4 ${runAppLinkClassName}`}
+                onClick={() => {
+                  trackEvent('click-app', { location: 'nav-mobile' })
+                  setMobileMenuOpen(false)
+                }}
+              >
                 {runAppLabel}
               </a>
-              <Link href={getLocalizedPath('/documentation')} className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors" onClick={() => setMobileMenuOpen(false)}>
+              <Link
+                href={getLocalizedPath('/documentation')}
+                className="block px-4 py-2 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                onClick={() => {
+                  trackEvent('click-docs', { location: 'nav-mobile' })
+                  setMobileMenuOpen(false)
+                }}
+              >
                 {documentationLabel}
               </Link>
             </div>

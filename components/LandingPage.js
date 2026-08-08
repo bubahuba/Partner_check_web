@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import { getWebAppUrl } from '../lib/languages'
+import { trackEvent } from '../lib/analytics'
 import { getLandingContent, getStaticDemoContacts, generateRandomDemoContacts } from '../lib/landing'
 import SwipeableContactShowcase from './SwipeableContactShowcase'
 import OpenGraphMeta from './OpenGraphMeta'
@@ -129,12 +130,14 @@ export default function LandingPage({ locale, title, description }) {
                 <div className="flex flex-wrap gap-4">
                   <a
                     href="#download"
+                    onClick={() => trackEvent('click-download')}
                     className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-zinc-900 text-white font-semibold text-base hover:bg-zinc-800 dark:bg-white dark:text-zinc-900 dark:hover:bg-zinc-100 transition-all hover:scale-[1.02] shadow-lg shadow-zinc-900/10 dark:shadow-white/10"
                   >
                     {t.ctaPrimary}
                   </a>
                   <a
                     href={webAppUrl}
+                    onClick={() => trackEvent('click-app', { location: 'hero' })}
                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-violet-300 text-violet-700 font-medium text-base hover:border-violet-400 hover:bg-violet-50 dark:border-violet-500/50 dark:text-violet-300 dark:hover:border-violet-400 dark:hover:bg-violet-500/10 transition-colors"
                   >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -144,6 +147,7 @@ export default function LandingPage({ locale, title, description }) {
                   </a>
                   <Link
                     href={docsPath}
+                    onClick={() => trackEvent('click-docs', { location: 'hero' })}
                     className="inline-flex items-center justify-center px-8 py-4 rounded-full border border-zinc-300 text-zinc-700 font-medium text-base hover:border-zinc-400 hover:text-zinc-900 dark:border-zinc-600 dark:text-zinc-300 dark:hover:border-zinc-400 dark:hover:text-white transition-colors"
                   >
                     {t.ctaSecondary}
@@ -400,20 +404,33 @@ export default function LandingPage({ locale, title, description }) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
               <a
                 href={webAppUrl}
+                onClick={() => trackEvent('click-app', { location: 'download' })}
                 className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-violet-600 text-white border border-violet-500 shadow-sm hover:bg-violet-500 transition-colors"
               >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m-9 9a9 9 0 019-9" />
                 </svg>
                 <span className="font-semibold">{t.ctaWebApp}</span>
               </a>
-              <a className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none" href="https://apps.apple.com/app/partner-check-pro/id6755683156" target="_blank">
+              <a
+                className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none"
+                href="https://apps.apple.com/app/partner-check-pro/id6755683156"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('click-ios')}
+              >
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
                 </svg>
                 <span className="font-semibold">App Store</span>
               </a>
-              <a className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none" href="https://play.google.com/store/apps/details?id=cz.shadowHub.partnerCheck&pcampaignid=app_website" target="_blank">
+              <a
+                className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 shadow-sm dark:shadow-none"
+                href="https://play.google.com/store/apps/details?id=cz.shadowHub.partnerCheck&pcampaignid=app_website"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => trackEvent('click-android')}
+              >
                 <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M3.609 1.814L13.792 12 3.61 22.186a1.006 1.006 0 01-.61-.92V2.734a1.006 1.006 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.198l2.807 1.626a1.002 1.002 0 010 1.73l-2.808 1.626L15.206 12l2.492-2.491zM5.864 2.658L16.802 8.99l-2.303 2.303-8.635-8.635z" />
                 </svg>
@@ -423,6 +440,7 @@ export default function LandingPage({ locale, title, description }) {
 
             <Link
               href={docsPath}
+              onClick={() => trackEvent('click-docs', { location: 'download' })}
               className="text-violet-600 hover:text-violet-500 dark:text-violet-400 dark:hover:text-violet-300 underline underline-offset-4 transition-colors"
             >
               {t.ctaSecondary} →
