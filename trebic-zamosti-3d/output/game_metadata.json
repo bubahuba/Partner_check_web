@@ -1,0 +1,273 @@
+{
+  "title": "Třebíč Zámostí",
+  "description": "Historic Jewish Quarter (UNESCO) — game-ready Collada export",
+  "coordinate_system": {
+    "origin": {
+      "lat": 49.217,
+      "lon": 15.8795
+    },
+    "units": "meters",
+    "up_axis": "Y"
+  },
+  "bounds_meters": {
+    "note": "Local TMerc centered on quarter"
+  },
+  "building_count": 613,
+  "landmarks": [
+    {
+      "name": "Autobusové nádraží Třebíč",
+      "type": "yes",
+      "osm_id": 38325833,
+      "position": {
+        "x": -210.52162060576813,
+        "y": 4.5,
+        "z": 268.1863358359084
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Autobusové nádraží Třebíč"
+      }
+    },
+    {
+      "name": "Fuchsova spořitelna (OSSZ)",
+      "type": "residential",
+      "osm_id": 262602809,
+      "position": {
+        "x": -115.43349225747774,
+        "y": 4.800000000000001,
+        "z": 126.63104110425898
+      },
+      "tags": {
+        "building": "residential",
+        "building:flats": "1",
+        "building:levels": "3",
+        "name": "Fuchsova spořitelna (OSSZ)"
+      }
+    },
+    {
+      "name": "Galerie Čapek",
+      "type": "house",
+      "osm_id": 262599908,
+      "position": {
+        "x": 265.8467210215388,
+        "y": 4.25,
+        "z": 175.01106582614923
+      },
+      "tags": {
+        "building": "house",
+        "name": "Galerie Čapek"
+      }
+    },
+    {
+      "name": "Grand Hotel",
+      "type": "civic",
+      "osm_id": 262565784,
+      "position": {
+        "x": -49.01672403026937,
+        "y": 1.6,
+        "z": 77.0775291358526
+      },
+      "tags": {
+        "building": "civic",
+        "building:levels": "1",
+        "name": "Grand Hotel"
+      }
+    },
+    {
+      "name": "Krankenhaus",
+      "type": "residential",
+      "osm_id": 32708894,
+      "position": {
+        "x": -165.37001489237545,
+        "y": 3.2,
+        "z": -127.34292305896956
+      },
+      "tags": {
+        "building": "residential",
+        "building:flats": "6",
+        "building:levels": "2",
+        "name": "Krankenhaus",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "name": "Malovaný dům",
+      "type": "residential",
+      "osm_id": 262607147,
+      "position": {
+        "x": -51.28513873665202,
+        "y": 3.2,
+        "z": 176.03838637958992
+      },
+      "tags": {
+        "building": "residential",
+        "building:levels": "2",
+        "name": "Malovaný dům"
+      }
+    },
+    {
+      "name": "Přední synagoga",
+      "type": "yes",
+      "osm_id": 31903151,
+      "position": {
+        "x": -189.79342140517934,
+        "y": 4.5,
+        "z": -29.82523265244485
+      },
+      "tags": {
+        "building": "yes",
+        "name": "Přední synagoga"
+      }
+    },
+    {
+      "name": "Sandra",
+      "type": "residential",
+      "osm_id": 262565836,
+      "position": {
+        "x": -180.7947053275425,
+        "y": 1.6,
+        "z": 105.18948158756979
+      },
+      "tags": {
+        "building": "residential",
+        "building:flats": "2",
+        "building:levels": "1",
+        "name": "Sandra"
+      }
+    },
+    {
+      "name": "U hradeb",
+      "type": "residential",
+      "osm_id": 262565780,
+      "position": {
+        "x": 161.37058933585953,
+        "y": 3.2,
+        "z": 66.60556198381427
+      },
+      "tags": {
+        "building": "residential",
+        "building:levels": "2",
+        "name": "U hradeb"
+      }
+    },
+    {
+      "name": "U zlatého lva",
+      "type": "residential",
+      "osm_id": 262565789,
+      "position": {
+        "x": -10.937582309402464,
+        "y": 3.2,
+        "z": 64.8237768476251
+      },
+      "tags": {
+        "building": "residential",
+        "building:flats": "3",
+        "building:levels": "2",
+        "name": "U zlatého lva"
+      }
+    },
+    {
+      "name": "U černého orla",
+      "type": "residential",
+      "osm_id": 262565797,
+      "position": {
+        "x": 37.490476414472276,
+        "y": 1.6,
+        "z": 52.022418832279264
+      },
+      "tags": {
+        "building": "residential",
+        "building:flats": "1",
+        "building:levels": "1",
+        "name": "U černého orla"
+      }
+    },
+    {
+      "name": "Zadní synagoga",
+      "type": "civic",
+      "osm_id": 263565779,
+      "position": {
+        "x": -10.28409680555461,
+        "y": 4.5,
+        "z": -84.05507235097971
+      },
+      "tags": {
+        "building": "civic",
+        "name": "Zadní synagoga"
+      }
+    },
+    {
+      "name": "dům Seligmanna Bauera",
+      "type": "residential",
+      "osm_id": 263565768,
+      "position": {
+        "x": -26.170280929360928,
+        "y": 1.6,
+        "z": -86.59326963696651
+      },
+      "tags": {
+        "building": "residential",
+        "building:levels": "1",
+        "name": "dům Seligmanna Bauera",
+        "tourism": "attraction"
+      }
+    },
+    {
+      "name": "kostel Svatého Martina",
+      "type": "church",
+      "osm_id": 38291667,
+      "position": {
+        "x": 44.698279635649584,
+        "y": 9.0,
+        "z": 242.73166813830235
+      },
+      "tags": {
+        "building": "church",
+        "building:architecture": "baroque",
+        "building:ruian:type": "5",
+        "name": "kostel Svatého Martina"
+      }
+    },
+    {
+      "name": "kruhová bašta na Hrádku",
+      "type": "tower",
+      "osm_id": 32773884,
+      "position": {
+        "x": 254.36231691902333,
+        "y": 4.5,
+        "z": -64.7652711418122
+      },
+      "tags": {
+        "building": "tower",
+        "historic": "ruins",
+        "name": "kruhová bašta na Hrádku"
+      }
+    },
+    {
+      "name": "Černý dům",
+      "type": "civic",
+      "osm_id": 262565912,
+      "position": {
+        "x": 120.7450119866919,
+        "y": 4.800000000000001,
+        "z": 63.41988987910415
+      },
+      "tags": {
+        "building": "civic",
+        "building:levels": "3",
+        "name": "Černý dům"
+      }
+    }
+  ],
+  "recommended_spawn": {
+    "x": 0,
+    "y": 2,
+    "z": 0,
+    "note": "Center of Jewish quarter"
+  },
+  "attribution": {
+    "geometry": "OpenStreetMap contributors (ODbL)",
+    "elevation": "Open-Meteo elevation API",
+    "imagery_reference": "mapy.cz 3D screenshots + Esri World Imagery"
+  }
+}
